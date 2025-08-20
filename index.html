@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIS Mini Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Hero Section -->
+  <section class="text-center py-12">
+    <h1 class="text-4xl font-bold mb-4 animate-bounce">GIS Mini Portfolio</h1>
+    <p class="text-lg text-gray-600">地圖 × 資料視覺化 × QGIS</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 max-w-6xl mx-auto">
+    <!-- Card 1 -->
+    <div class="bg-white shadow-lg rounded-2xl overflow-hidden hover:scale-105 transform transition duration-300">
+      <img src="assets/臺灣摩斯漢堡分佈圖.jpg" alt="全台摩斯門市分布圖" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this)">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-5">全台摩斯門市分布圖</h2>
+        <p class="text-gray-600 text-sm mb-2">蒐集門市資料並套疊於地圖，呈現地點分布。</p>
+        <p class="text-gray-600 text-sm">使用爬蟲將門市地址從 MOS 官網爬下來，再將地址轉換成經緯度，透過 QGIS 軟體將其製作成點子圖（Dot map）並繪於臺灣地圖上。</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white shadow-lg rounded-2xl overflow-hidden hover:scale-105 transform transition duration-300">
+      <img src="assets/臺北闖空門分佈圖.jpg" alt="台北闖空門熱區圖" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this)">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-5">台北闖空門熱區圖</h2>
+        <p class="text-gray-600 text-sm mb-2">利用公開的犯罪資料，繪製熱區圖觀察高風險區域。</p>
+        <p class="text-gray-600 text-sm">使用政府公開資料，獲得遭闖空門的模糊街區地址，再透過內政地理資訊圖資雲整合服務平台（TGOS）批次轉換為經緯度，使用 QGIS 軟體將其製作成熱區圖（Heatmap），並疊圖於臺北市圖資上，此資料視覺化結果可用於呈現臺北市入戶竊盜的熱區分佈。</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-white shadow-lg rounded-2xl overflow-hidden hover:scale-105 transform transition duration-300">
+      <img src="assets/民111年各縣市咖啡生產產值圖.jpg" alt="台灣咖啡產值地圖" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this)">
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-5">臺灣咖啡產值地圖</h2>
+        <p class="text-gray-600 text-sm mb-2">使用分級統計地圖呈現臺灣各縣市咖啡的產值差異。</p>
+        <p class="text-gray-600 text-sm">使用行政院農業部農業統計資料查詢平台的資料，整理後導入 QGIS 軟體，製作成分級統計地圖（Choropleth Map），視覺化呈現各縣市咖啡產值差異。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Lightbox Image" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 mt-12 text-gray-500 text-sm">
+    <p>© 2025 阿蛤 | <a href="mailto:qwerdgt@gmail.com" class="underline">qwerdgt@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
